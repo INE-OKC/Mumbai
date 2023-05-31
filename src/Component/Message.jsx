@@ -8,7 +8,9 @@ import savings from "../assets/image/ineSaving.png";
 import bell from "../assets/image/ineBell.png";
 import { BiDownArrow } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Message = () => {
+  const navigate = useNavigate()
   return (
     <div className="message">
       <div className="messageMain">
@@ -36,9 +38,13 @@ const Message = () => {
             </div>
             <div>
               <img src={savings} alt="" />
-              <p>My Savings</p>
+              <Link to="/mysavings">My Savings</Link>
             </div>
-            <button className="wallets">Connect Wallet</button>
+            <button className="wallets" onClick={()=>{
+              setTimeout(()=>{
+                navigate("/connectwallet")
+              }, 2000)
+            }}>Connect Wallet</button>
           </div>
         </div>
         <div className="second">

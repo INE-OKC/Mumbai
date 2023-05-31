@@ -6,6 +6,7 @@ import Dashboard from "./Component/Dashboard";
 import MySavings from "./Component/MySavings";
 import Explore from "./Component/Explore";
 import Message from "./Component/Message";
+import ConnectWallet from "./Component/ConnectWallet";
 function App() {
   return (
     <div className="bg-black h-full">
@@ -17,6 +18,7 @@ function App() {
         <Route path="mysavings" element={<MySavings />} />
         <Route path="explore" element={<Explore/>}/>
         <Route path="/message" element={<Message/>}/>
+        <Route path="connectwallet" element={<ConnectWallet/>}/>
       </Routes>
     </div>
   );

@@ -45,7 +45,7 @@ function ConnectWallet() {
           <li className="block md:hover:bg-list-color md:pl-2 md:pt-3 md:mb-2 md:ml-2 hover:rounded-lg">
             <img src={profilepic} alt="homeicon" className="inline" />
             <span className="text-white font-medium text-sm ml-4 hidden md:inline">
-              <a href="/">Profile</a>
+              <a href="/profile">Profile</a>
             </span>
           </li>
           <hr className=" border-gray-500 hidden md:block" />
@@ -58,7 +58,7 @@ function ConnectWallet() {
           <hr className=" border-gray-500 hidden md:block" />
         </ul>
         <button className="bg-gradient-to-r from-button-start via-button-mid to-button-end md:mt-5 text-white md:font-medium py-2 md:px-4 md:text-sm rounded-md md:ml-[20%] text-xs px-1">
-          <a href="/">Connect Wallet</a>
+          <a href="/connectwallet">Connect Wallet</a>
         </button>
       </div>
     </div>
