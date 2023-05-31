@@ -193,3 +193,76 @@
   bottom: 0;
   right: 0;
 }
+.third .chats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.third .chats .imgMessage {
+  width: 52px;
+  height: 51px;
+  background: url("../assets/image/Howard.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 16px;
+  position: relative;
+}
+.third .chat1 .imgMessage {
+  width: 52px;
+  height: 51px;
+  background: url("../assets/image/meImg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 16px;
+  position: relative;
+}
+.third .chats .imgMessage .Active {
+  width: 10px;
+  height: 10px;
+  background: #53e04e;
+  border-radius: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.third .chats .texts {
+  width: 504px;
+  height: 117px;
+  background: #424242;
+  border-radius: 10px;
+  padding: 5px;
+}
+.third .chat1 .texts {
+  width: 504px;
+  height: 117px;
+  background: #305a7c;
+  border-radius: 10px;
+  padding: 5px;
+}
+.third .chats .texts div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 400;
+  font-size: 12px;
+  color: #ffffff;
+}
+.third .chats .texts p {
+  font-weight: 600;
+  font-size: 13px;
+}
+.third .chats .texts span {
+  font-weight: 400;
+  font-size: 12px;
+  margin: 5px auto;
+}
+
+.third .mainChat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
