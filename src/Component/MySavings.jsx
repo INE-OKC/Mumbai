@@ -2,7 +2,7 @@ import bellpic from '../assets/image/bellicon.png'
 import questionicon from '../assets/image/questionmark.png'
 import walletpic from '../assets/image/walletsavings.png'
 import overviewpic from '../assets/image/overviewsavings.png'
-import solpic from '../assets/image/solsavings.png'
+import OKTpic from '../assets/image/OKTsavings.png'
 import shoppingicon from '../assets/image/shopping-cart.png'
 import flashicon from '../assets/image/flash.png'
 import arrowicon from '../assets/image/arrow-left.png'
@@ -62,24 +62,24 @@ function MySavings() {
           <div className="px-4 pt-4 md:flex">
             <div>
               <h4 className="text-white text-lg pb-5 md:text-base">
-                Welcome to your Sol savings dashboard!
+                Welcome to your OKT savings dashboard!
               </h4>
               <p className="text-search-text pb-4 md:text-sm">
-                Here you can track your progress and earnings from saving SOL ;
+                Here you can track your progress and earnings from saving OKT ;
               </p>
               <ul className="list-disc ml-6 mb-3 md:mb-4">
                 <li className="text-search-text mb-3 text-sm md:text-xs">
-                  You can also withdraw your saved SOL or Ine tokens at any time
+                  You can also withdraw your saved OKT or Ine tokens at any time
                   by clicking on the "Withdraw" button.
                 </li>
                 <li className="text-search-text text-sm md:text-xs">
-                  To continue saving SOL and earning Ine tokens, simply click on
-                  the "Save More SOL" button below.
+                  To continue saving OKT and earning Ine tokens, simply click on
+                  the "Save More OKT" button below.
                 </li>
               </ul>
               <div className="pb-3">
-                <button className="text-white text-xs px-4 py-1 ml-2 rounded-md bg-gradient-to-r from-sol-first to-sol-second md:py-3">
-                  <a href="/">Save More SOL</a>
+                <button className="text-white text-xs px-4 py-1 ml-2 rounded-md bg-gradient-to-r from-OKT-first to-OKT-second md:py-3">
+                  <a href="/">Save More OKT</a>
                   <span>
                     <img
                       src={shoppingicon}
@@ -100,7 +100,7 @@ function MySavings() {
                 </button>
               </div>
             </div>
-            <img src={solpic} alt="img" className="hidden md:inline w-[30%]" />
+            <img src={OKTpic} alt="img" className="hidden md:inline w-[30%]" />
           </div>
         </div>
       </div>
