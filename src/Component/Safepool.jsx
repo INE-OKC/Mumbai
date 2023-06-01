@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Web3 from 'web3';
-import SavingsContract from './contracts/INEpool.json';
+import SavingsContract from '../../contracts/INEpool.json';
 
 const App = () => {
   const [web3, setWeb3] = useState(null);
   const [contract, setContract] = useState(null);
   const [accounts, setAccounts] = useState([]);
-  const [ethBalance, setEthBalance] = useState(0);
-  const [ineBalance, setIneBalance] = useState(0);
+  const [ethBalance, setEthBalance] = useState('0');
+  const [ineBalance, setIneBalance] = useState('0');
+  const [ethAmount, setEthAmount] = useState('');
+  const [ineAmount, setIneAmount] = useState('');
 
   useEffect(() => {
     const initWeb3 = async () => {
@@ -24,8 +26,7 @@ const App = () => {
   useEffect(() => {
     const initContract = async () => {
       if (web3) {
-        try {
-          const networkId = 65;
+        try { const networkId = 65;
           const deployedNetwork = SavingsContract.networks[networkId];
         const contractAddress = "0x8b88DF64B67B741F97A742480f822FC8a76ff87B";
           const contractInstance = new web3.eth.Contract(
@@ -60,31 +61,46 @@ const App = () => {
 
   const handleDeposit = async () => {
     if (contract && accounts.length > 0) {
-    const amount = web3.utils.toWei('1', 'ether'); // Deposit 1 OKT
-      await contract.methods.deposit().send({ from: accounts[0], value: amount });
+      const amountWei = web3.utils.toWei(ethAmount, 'ether');
+      await contract.methods.deposit().send({ from: accounts[0], value: amountWei }); //Deposit OKT
+      // Refresh balances after the transaction
+      fetchBalances();
+      setEthAmount('');
     }
   };
 
   const handleWithdrawEth = async () => {
     if (contract && accounts.length > 0) {
-      await contract.methods.withdrawEth(ethBalance).send({ from: accounts[0] });
+      await contract.methods.withdrawEth().send({ from: accounts[0] });
+      // Refresh balances after the transaction
+      fetchBalances();
     }
   };
 
   const handleWithdrawIne = async () => {
     if (contract && accounts.length > 0) {
-      await contract.methods.withdrawIne(ineBalance).send({ from: accounts[0] });
+      await contract.methods.withdrawIne().send({ from: accounts[0] });
+      // Refresh balances after the transaction
+      fetchBalances();
     }
-};
+  };
 
   return (
     <div>
       <h1>INE Pool</h1>
       <p>OKT Balance: {web3 && web3.utils.fromWei(ethBalance, 'ether')}</p>
       <p>Ine Balance: {ineBalance}</p>
-      <button onClick={handleDeposit}>Deposit</button>
+      <div>
+        <label>OKT Amount:</label>
+        <input type="number" value={ethAmount} onChange={(e) => setEthAmount(e.target.value)} />
+        <button onClick={handleDeposit}>Deposit OKT</button>
+      </div>
+      <div>
+        <label>Ine Amount:</label>
+        <input type="number" value={ineAmount} onChange={(e) => setIneAmount(e.target.value)} />
+        <button onClick={handleWithdrawIne}>Withdraw Ine</button>
+      </div>
       <button onClick={handleWithdrawEth}>Withdraw OKT</button>
-      <button onClick={handleWithdrawIne}>Withdraw Ine</button>
     </div>
   );
 };
