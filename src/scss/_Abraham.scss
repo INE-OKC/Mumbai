@@ -19,7 +19,7 @@
   gap: 20px;
 }
 
-.first .exp {
+.messageMain .first .exp {
   width: 270px;
   height: 445px;
   background: rgba(33, 35, 39, 0.6);
@@ -28,7 +28,7 @@
   flex-direction: column;
   padding: 30px;
 }
-.first .exp .wallets {
+.messageMain .first .exp .wallets {
   width: 168px;
   height: 40px;
   background: linear-gradient(
@@ -43,7 +43,7 @@
   justify-content: center;
   margin-top: 40px;
 }
-.first .exp div {
+.messageMain .first .exp div {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -55,15 +55,15 @@
   height: 46px;
   padding: 10px;
 }
-.first .exp div:hover {
+.messageMain .first .exp div:hover {
   background: rgba(189, 199, 195, 0.2);
   border-radius: 10px;
 }
-.first .exp div img {
+.messageMain .first .exp div img {
   height: 15px;
   width: 15px;
 }
-.first .searches {
+.messageMain .first .searches {
   width: 263px;
   height: 50px;
   background: rgba(33, 35, 39, 0.7);
@@ -74,37 +74,37 @@
   align-items: center;
   padding: 0px 15px;
 }
-.first .searches input {
+.messageMain .first .searches input {
   background: none;
   color: rgba(255, 255, 255, 0.2);
   outline: none;
 }
-.first .searches input::placeholder {
+.messageMain .first .searches input::placeholder {
   color: rgba(255, 255, 255, 0.2);
 }
-.second {
+.messageMain .second {
   width: 484px;
   height: 1389px;
   background: rgba(33, 35, 39, 0.6);
   padding: 10px;
 }
-.second .msg {
+.messageMain .second .msg {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.second .msg div {
+.messageMain .second .msg div {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
 }
-.second .msg div p {
+.messageMain .second .msg div p {
   font-weight: 600;
   font-size: 24px;
   line-height: 29px;
 }
-.second .singleMsg {
+.messageMain .second .singleMsg {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,12 +115,12 @@
   background: #393939;
   padding: 10px;
 }
-.second .singleMsg span {
+.messageMain .second .singleMsg span {
   font-weight: 200;
   font-size: 12px;
   color: #ffffff;
 }
-.second .singleMsg .imgMessage {
+.messageMain .second .singleMsg .imgMessage {
   width: 52px;
   height: 51px;
   background: url("../assets/image/Howard.png");
@@ -130,7 +130,7 @@
   border-radius: 16px;
   position: relative;
 }
-.second .singleMsg .imgMessage .Active {
+.messageMain .second .singleMsg .imgMessage .Active {
   width: 10px;
   height: 10px;
   background: #53e04e;
@@ -139,20 +139,20 @@
   bottom: 0;
   right: 0;
 }
-.third {
+.messageMain .third {
   width: 651px;
   height: 1389px;
   background: rgba(33, 35, 39, 0.6);
   padding-top: 62px;
 }
-.third .thirdTop {
+.messageMain .third .thirdTop {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-.third .thirdTop span {
+.messageMain .third .thirdTop span {
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
@@ -160,7 +160,7 @@
   color: rgba(255, 255, 255, 0.4);
   padding: 10px 0px;
 }
-.third .thirdTop p {
+.messageMain .third .thirdTop p {
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -168,13 +168,13 @@
   letter-spacing: 0.022em;
   color: #ffffff;
 }
-.third .thirdTop .borders {
+.messageMain .third .thirdTop .borders {
   width: 564px;
   height: 0px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   margin: 20px auto;
 }
-.third .thirdTop .imgMessage {
+.messageMain .third .thirdTop .imgMessage {
   width: 52px;
   height: 51px;
   background: url("../assets/image/Howard.png");
@@ -184,7 +184,7 @@
   border-radius: 16px;
   position: relative;
 }
-.third .thirdTop .imgMessage .Active {
+.messageMain .third .thirdTop .imgMessage .Active {
   width: 10px;
   height: 10px;
   background: #53e04e;
@@ -193,13 +193,13 @@
   bottom: 0;
   right: 0;
 }
-.third .chats {
+.messageMain .third .chats {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
-.third .chats .imgMessage {
+.messageMain .third .chats .imgMessage {
   width: 52px;
   height: 51px;
   background: url("../assets/image/Howard.png");
@@ -209,7 +209,7 @@
   border-radius: 16px;
   position: relative;
 }
-.third .chat1 .imgMessage {
+.messageMain .third .chat1 .imgMessage {
   width: 52px;
   height: 51px;
   background: url("../assets/image/meImg.png");
@@ -219,7 +219,7 @@
   border-radius: 16px;
   position: relative;
 }
-.third .chats .imgMessage .Active {
+.messageMain .third .chats .imgMessage .Active {
   width: 10px;
   height: 10px;
   background: #53e04e;
@@ -228,21 +228,21 @@
   bottom: 0;
   right: 0;
 }
-.third .chats .texts {
+.messageMain .third .chats .texts {
   width: 504px;
   height: 117px;
   background: #424242;
   border-radius: 10px;
   padding: 5px;
 }
-.third .chat1 .texts {
+.messageMain .third .chat1 .texts {
   width: 504px;
   height: 117px;
   background: #305a7c;
   border-radius: 10px;
   padding: 5px;
 }
-.third .chats .texts div {
+.messageMain .third .chats .texts div {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -250,19 +250,112 @@
   font-size: 12px;
   color: #ffffff;
 }
-.third .chats .texts p {
+.messageMain .third .chats .texts p {
   font-weight: 600;
   font-size: 13px;
 }
-.third .chats .texts span {
+.messageMain .third .chats .texts span {
   font-weight: 400;
   font-size: 12px;
   margin: 5px auto;
 }
 
-.third .mainChat {
+.messageMain .third .mainChat {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
+}
+.profile {
+  height: 100vh;
+  width: 100%;
+  background: #000000;
+}
+.profile .profilemain {
+  display: flex;
+  color: white;
+  justify-content: center;
+  gap: 20px;
+  width: 90%;
+}
+.profile .profilemain .first {
+  width: 20%;
+  height: 100vh;
+}
+.profile .profilemain .first .searches {
+  width: 263px;
+  height: 50px;
+  background: rgba(33, 35, 39, 0.7);
+  border-radius: 50px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+}
+.profile .profilemain .first .searches input {
+  background: none;
+  color: rgba(255, 255, 255, 0.2);
+  outline: none;
+}
+.profile .profilemain .first .searches input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+.profile .profilemain .first .exp {
+  width: 270px;
+  height: 445px;
+  background: rgba(33, 35, 39, 0.6);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+.profile .profilemain .first .exp .wallets {
+  width: 168px;
+  height: 40px;
+  background: linear-gradient(
+    94.54deg,
+    #95cad6 0%,
+    #9f9adb 58.45%,
+    #b993e9 90.51%
+  );
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+.profile .profilemain .first .exp div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 22px;
+  color: #ffffff;
+  width: 229px;
+  height: 46px;
+  padding: 10px;
+}
+.profile .profilemain .first .exp div:hover {
+  background: rgba(189, 199, 195, 0.2);
+  border-radius: 10px;
+}
+.profile .profilemain .first .exp div img {
+  height: 15px;
+  width: 15px;
+}
+.profile .profilemain .second {
+  width: 70%;
+  height: 100vh;
+}
+.profile .profilemain .second .topSecond {
+  width: 1148px;
+  height: 102px;
+}
+
+.profile .profilemain .second .profileBg {
+  width: 1139px;
+  height: 384px;
+  background: url("../assets/image/profileBg.png");
 }
