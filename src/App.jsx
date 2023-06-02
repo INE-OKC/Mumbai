@@ -1,13 +1,14 @@
 import Layout from "./Component/Layout";
 import Login from "./Component/Login";
 import Signin from "./Component/Signin";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./Component/Dashboard";
 import MySavings from "./Component/MySavings";
 import Explore from "./Component/Explore";
 import Message from "./Component/Message";
 import ConnectWallet from "./Component/ConnectWallet";
 import Profile from "./Component/Profile";
+import Safe from "./Component/Safe";
 function App() {
   return (
     <div className="bg-black h-full">
@@ -21,6 +22,7 @@ function App() {
         <Route path="/message" element={<Message/>}/>
         <Route path="connectwallet" element={<ConnectWallet/>}/>
         <Route path="profile" element={<Profile/>}/>
+        <Route path="/safe" element={<Safe/>}/>
       </Routes>
     </div>
   );
