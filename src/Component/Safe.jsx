@@ -1,31 +1,9 @@
-import React from 'react'
-import Web3 from "web3";
-import SavingsContract from "../../Contracts/INEpool.json";
-import { useEffect, useState } from "react";
-const Safe = () => {
-  const [web3, setWeb3] = useState(null);
-  const [contract, setContract] = useState(null);
-  const [accounts, setAccounts] = useState([]);
-  const [ethBalance, setEthBalance] = useState(0);
-  const [ineBalance, setIneBalance] = useState(0);
-  useEffect(() => {
-    const initWeb3 = async () => {
-      if (window.ethereum) {
-        const web3Instance = new Web3(window.ethereum);
-        await window.ethereum.enable();
-        setWeb3(web3Instance);
-      }
-    };
-
-    initWeb3();
-  }, []);
-
-import React, { useEffect, useState } from 'react';
+import react, { useEffect, useState } from 'react';
 import Web3 from 'web3';
-import React from "react";
-import Web3 from "web3";
-import SavingsContract from "../Contracts/INEpool.json";
-import { useEffect } from "react";
+//import react from "react";
+//import Web3 from "web3";
+import SavingsContract from "../../Contracts/INEpool.json";
+//import { useEffect } from "react";
 
 
 const Safepool = () => {
