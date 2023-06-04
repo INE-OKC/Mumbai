@@ -5,7 +5,7 @@ import Media from "./Media";
 import ConnectWallet from "./ConnectWallet";
 import bigmanpic from "../assets/image/bigman.png";
 import dots from "../assets/image/dots.png";
-import jamespic from "../assets/image/contentfour.png";
+import jamespic from "../assets/image/contentFour.png";
 import spaypic from "../assets/image/spay.png";
 import { useState } from "react";
 import { FaHeart, FaRegComment, FaPaperPlane } from "react-icons/fa";

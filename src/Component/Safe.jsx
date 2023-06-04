@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import react, { useEffect, useState } from 'react';
 import Web3 from 'web3';
-import React from "react";
-import Web3 from "web3";
-import SavingsContract from "../Contracts/INEpool.json";
-import { useEffect } from "react";
+//import react from "react";
+//import Web3 from "web3";
+import SavingsContract from "../../Contracts/INEpool.json";
+//import { useEffect } from "react";
 
 
 const Safepool = () => {

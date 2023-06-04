@@ -2,7 +2,7 @@ import bellpic from '../assets/image/bellicon.png'
 import questionicon from '../assets/image/questionmark.png'
 import walletpic from '../assets/image/walletsavings.png'
 import overviewpic from '../assets/image/overviewsavings.png'
-import OKTpic from '../assets/image/OKTsavings.png'
+import solpic from '../assets/image/solsavings.png'
 import shoppingicon from '../assets/image/shopping-cart.png'
 import flashicon from '../assets/image/flash.png'
 import arrowicon from '../assets/image/arrow-left.png'
@@ -100,7 +100,7 @@ function MySavings() {
                 </button>
               </div>
             </div>
-            <img src={OKTpic} alt="img" className="hidden md:inline w-[30%]" />
+            <img src={solpic} alt="img" className="hidden md:inline w-[30%]" />
           </div>
         </div>
       </div>
