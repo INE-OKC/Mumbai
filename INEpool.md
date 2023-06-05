@@ -1,5 +1,3 @@
-Certainly! Here's the updated version of the documentation with "ETH" replaced by "OKT":
-
 ## Savings Contract Documentation
 
 This documentation provides an overview of the Savings Contract, a Solidity smart contract that allows users to save OKT and earn Ine tokens with compound interest. It also includes instructions on how to integrate the contract with a React frontend.
@@ -27,7 +25,7 @@ To integrate the Savings Contract with a React frontend, follow these steps:
 
 4. Copy the provided React code into the `SavingsContract.js` file.
 
-5. Replace `'YOUR_CONTRACT_ADDRESS'` in the code with the actual address of your deployed Savings Contract.
+5. Replace `'YOUR_CONTRACT_ADDRESS'` in the code with the actual address of your deployed Savings Contract. //get from read.md
 
 6. Update the contract ABI in the `import SavingsContract from './contracts/SavingsContract.json'` line if you have modified the contract.
 
