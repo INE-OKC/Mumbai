@@ -1,12 +1,37 @@
-import searchpic from '../assets/image/searchicon.png'
-import homepic from '../assets/image/homeicon.png'
-import explorepic from '../assets/image/exploreicon.png'
-import profilepic from '../assets/image/profileicon.png'
-import savingspic from '../assets/image/savingsicon.png'
-import messagepic from '../assets/image/messageicon.png'
-import { Link } from 'react-router-dom'
-
+import searchpic from "../assets/image/searchicon.png";
+import homepic from "../assets/image/homeicon.png";
+import explorepic from "../assets/image/exploreicon.png";
+import profilepic from "../assets/image/profileicon.png";
+import savingspic from "../assets/image/savingsicon.png";
+import messagepic from "../assets/image/messageicon.png";
+import { Link } from "react-router-dom";
+import Web3 from "web3";
+import { useState } from "react";
+const ethers = require("ethers");
+// import WalletConnectProvider from "@walletconnect/web3-provider";
 function ConnectWallet() {
+  const [account, setAccount] = useState("Connect Wallet");
+  const handleConnect = async () => {
+    if (window.ethereum) {
+      try {
+        await window.ethereum.request({ method: "eth_requestAccounts" });
+
+        if (typeof window.ethereum !== "undefined") {
+          // Initialize the web3 instance
+          const web3 = new Web3(window.ethereum);
+
+          // Continue with your desired operations using the web3 instance
+          const accounts = await web3.eth.getAccounts();
+          setAccount(accounts[0]);
+          console.log("Connected account:", accounts[0]);
+        }
+      } catch (error) {
+        console.error("Error connecting to wallet:", error);
+      }
+    } else {
+      console.error("Wallet not found");
+    }
+  };
   return (
     <div className="md:w-auto md:pt-5 fixed bottom-0 md:relative w-full bg-black md:bg-inherit md:px-2">
       <div className="hidden md:block">
@@ -57,12 +82,15 @@ function ConnectWallet() {
           </li>
           <hr className=" border-gray-500 hidden md:block" />
         </ul>
-        <button className="bg-gradient-to-r from-button-start via-button-mid to-button-end md:mt-5 text-white md:font-medium py-2 md:px-4 md:text-sm rounded-md md:ml-[20%] text-xs px-1">
-          <a href="/connectwallet">Connect Wallet</a>
+        <button
+          onClick={handleConnect}
+          className="bg-gradient-to-r from-button-start via-button-mid to-button-end md:mt-5 text-white md:font-medium py-2 md:px-4 md:text-sm rounded-md md:ml-[20%] text-xs px-1"
+        >
+          <a>{account}</a>
         </button>
       </div>
     </div>
   );
 }
 
-export default ConnectWallet
+export default ConnectWallet;

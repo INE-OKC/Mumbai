@@ -1,20 +1,18 @@
-import react, { useEffect, useState } from 'react';
-import Web3 from 'web3';
+import react, { useEffect, useState } from "react";
+import Web3 from "web3";
 //import react from "react";
 //import Web3 from "web3";
-import SavingsContract from "../../Contracts/INEpool.json";
+import SavingsContract from "../assets/INEpool.json";
 //import { useEffect } from "react";
-
 
 const Safepool = () => {
   const [web3, setWeb3] = useState(null);
   const [contract, setContract] = useState(null);
   const [accounts, setAccounts] = useState([]);
-  const [ethBalance, setEthBalance] = useState('0');
-  const [ineBalance, setIneBalance] = useState('0');
-  const [ethAmount, setEthAmount] = useState('');
-  const [ineAmount, setIneAmount] = useState('');
-
+  const [ethBalance, setEthBalance] = useState("0");
+  const [ineBalance, setIneBalance] = useState("0");
+  const [ethAmount, setEthAmount] = useState("");
+  const [ineAmount, setIneAmount] = useState("");
 
   useEffect(() => {
     const initWeb3 = async () => {
@@ -31,7 +29,8 @@ const Safepool = () => {
   useEffect(() => {
     const initContract = async () => {
       if (web3) {
-        try { const networkId = 65;
+        try {
+          const networkId = 65;
           const deployedNetwork = SavingsContract.networks[networkId];
           const contractAddress = "0x8b88DF64B67B741F97A742480f822FC8a76ff87B";
           const contractInstance = new web3.eth.Contract(
@@ -70,11 +69,13 @@ const Safepool = () => {
 
   const handleDeposit = async () => {
     if (contract && accounts.length > 0) {
-      const amountWei = web3.utils.toWei(ethAmount, 'ether');
-      await contract.methods.deposit().send({ from: accounts[0], value: amountWei }); //Deposit OKT
+      const amountWei = web3.utils.toWei(ethAmount, "ether");
+      await contract.methods
+        .deposit()
+        .send({ from: accounts[0], value: amountWei }); //Deposit OKT
       // Refresh balances after the transaction
       fetchBalances();
-      setEthAmount('');
+      setEthAmount("");
       const amount = web3.utils.toWei("1", "ether"); // Deposit 1 OKT
       await contract.methods
         .deposit()
@@ -111,12 +112,20 @@ const Safepool = () => {
       <p>Ine Balance: {ineBalance}</p>
       <div>
         <label>OKT Amount:</label>
-        <input type="number" value={ethAmount} onChange={(e) => setEthAmount(e.target.value)} />
+        <input
+          type="number"
+          value={ethAmount}
+          onChange={(e) => setEthAmount(e.target.value)}
+        />
         <button onClick={handleDeposit}>Deposit OKT</button>
       </div>
       <div>
         <label>Ine Amount:</label>
-        <input type="number" value={ineAmount} onChange={(e) => setIneAmount(e.target.value)} />
+        <input
+          type="number"
+          value={ineAmount}
+          onChange={(e) => setIneAmount(e.target.value)}
+        />
         <button onClick={handleWithdrawIne}>Withdraw Ine</button>
       </div>
       <button onClick={handleWithdrawEth}>Withdraw OKT</button>

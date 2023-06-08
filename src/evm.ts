@@ -3,7 +3,7 @@ import Web3 from "web3";
 
 import { APP_CONSTANTS } from "./constants";
 
-const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
+import { createAlchemyWeb3 } from "@alch/alchemy-web3";
 
 export default class EthereumRpc {
   private provider: SafeEventEmitterProvider;

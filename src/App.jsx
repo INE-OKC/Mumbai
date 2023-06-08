@@ -9,6 +9,7 @@ import Message from "./Component/Message";
 import ConnectWallet from "./Component/ConnectWallet";
 import Profile from "./Component/Profile";
 import Safe from "./Component/Safe";
+import { Dapp } from "./Component/Dapp";
 function App() {
   return (
     <div className="bg-black h-full">
@@ -18,11 +19,12 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="mysavings" element={<MySavings />} />
-        <Route path="explore" element={<Explore/>}/>
-        <Route path="/message" element={<Message/>}/>
-        <Route path="connectwallet" element={<ConnectWallet/>}/>
-        <Route path="profile" element={<Profile/>}/>
-        <Route path="/safe" element={<Safe/>}/>
+        <Route path="explore" element={<Explore />} />
+        <Route path="/message" element={<Message />} />
+        <Route path="connectwallet" element={<ConnectWallet />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="/safe" element={<Safe />} />
+        <Route path="/Dapp" element={<Dapp />} />
       </Routes>
     </div>
   );
