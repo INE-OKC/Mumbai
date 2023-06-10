@@ -10,6 +10,7 @@ import ConnectWallet from "./Component/ConnectWallet";
 import Profile from "./Component/Profile";
 import Safe from "./Component/Safe";
 import { Dapp } from "./Component/Dapp";
+import "./styles/globals.css";
 function App() {
   return (
     <div className="bg-black h-full">

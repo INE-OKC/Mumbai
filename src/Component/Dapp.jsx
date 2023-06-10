@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Card, Form } from "react-bootstrap";
 import { FaComment, FaRecycle, FaRetweet, FaThumbsUp } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ethers } from "ethers";
 import contractABI from "../assets/INEdapp.json";
 import { APP_CONSTANTS } from "../constants";
-
+import "../styles/globals.css";
 function Dapp() {
   const [provider, setProvider] = useState();
   const [account, setAccount] = useState("Connect Wallet");
@@ -14,6 +13,7 @@ function Dapp() {
   const [posts, setPosts] = useState([]);
   const [contract, setContract] = useState();
   const [comment, setComment] = useState();
+
   useEffect(() => {
     async function connectToContract() {
       try {
@@ -39,7 +39,7 @@ function Dapp() {
     }
 
     connectToContract();
-  }, []);
+  }, [account]);
 
   useEffect(() => {
     refreshPosts();
@@ -72,7 +72,9 @@ function Dapp() {
         const tx = await contract.writepost(prefName, comment);
 
         await tx.wait();
+        toast.success("Post created successfully");
         console.log("writepost function executed successfully");
+
         setComment("");
         refreshPosts();
       } catch (error) {
@@ -98,6 +100,7 @@ function Dapp() {
       const tx = await contract.upvote(index);
       await tx.wait();
       console.log("writepost function executed successfully");
+      toast.success("Post liked successfully");
       refreshPosts();
     } catch (error) {
       console.error(error);
@@ -154,82 +157,88 @@ function Dapp() {
     <div className="App">
       <ToastContainer />
       <header className="App-header">
-        <h1>INE Dapp</h1>
-        <button onClick={handleConnect} className="btn btn-primary">
+        <h1 className="text-3xl">INE Dapp</h1>
+        <button
+          onClick={handleConnect}
+          className="btn btn-primary mt-2 md:mt-0 md:ml-4"
+        >
           {account}
         </button>
         {provider && (
-          <button className="btn btn-danger">Disconnect Wallet</button>
+          <button className="btn btn-danger mt-2 md:mt-0 md:ml-4">
+            Disconnect Wallet
+          </button>
         )}
       </header>
-      <div className="App-content">
+      <div className="App-content mt-4">
         <div className="App-post-form">
-          <h3>Compose a new post</h3>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="comment">
-              <Form.Control
+          <h3 className="text-xl font-semibold">Compose a new post</h3>
+          <form onSubmit={handleSubmit}>
+            <div controlId="comment">
+              <input
                 type="text"
                 placeholder="What's on your mind?"
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 required
               />
-            </Form.Group>
+            </div>
             <button type="submit" className="btn btn-primary">
               Post
             </button>
-          </Form>
+          </form>
         </div>
-        <div className="App-posts">
-          <h3>Posts</h3>
-          {posts.map((post, index) => (
-            <Card key={index} className="mb-4">
-              <Card.Body>
-                <Card.Title>{post[0]}</Card.Title>
-                <Card.Text>{post[1]}</Card.Text>
-                <div className="flex items-center justify-between">
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => handleLike(index)}
-                  >
-                    <FaThumbsUp /> Like
-                  </button>
-
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => handleAddComment(index)}
-                  >
-                    <FaComment /> Comment
-                  </button>
-                </div>
-                {post.comments && (
-                  <div>
-                    <h5>Comments:</h5>
-                    <ul>
-                      {post.comments.map((comment, commentIndex) => (
-                        <li key={commentIndex}>{comment}</li>
-                      ))}
-                    </ul>
+        <div className="App-posts mt-4">
+          <h3 className="text-xl font-semibold">Posts</h3>
+          <div className="flex flex-row">
+            {posts.map((post, index) => (
+              <div key={index} className="mb-4">
+                <div className="card-body">
+                  <h3 className="font-semibold">{post[0]}</h3>
+                  <p>{post[1]}</p>
+                  <div className="flex items-center justify-between">
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => handleLike(index)}
+                    >
+                      <FaThumbsUp className="mr-2" /> Like
+                    </button>
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => handleAddComment(index)}
+                    >
+                      <FaComment className="mr-2" /> Comment
+                    </button>
                   </div>
-                )}
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Add a comment"
-                    value={commentInputs[index]}
-                    onChange={(e) => handleCommentChange(e, index)}
-                    className="form-control"
-                  />
-                  <button
-                    className="btn btn-primary mt-2"
-                    onClick={() => handleAddComment(index)}
-                  >
-                    Add Comment
-                  </button>
+                  {post.comments && (
+                    <div>
+                      <h5 className="font-semibold mt-4">Comments:</h5>
+                      <ul className="list-disc ml-6">
+                        {post.comments.map((comment, commentIndex) => (
+                          <li key={commentIndex}>{comment}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  <div className="mt-4">
+                    <input
+                      type="text"
+                      placeholder="Add a comment"
+                      value={commentInputs[index]}
+                      onChange={(e) => handleCommentChange(e, index)}
+                      className="form-control"
+                    />
+                    <button
+                      className="btn btn-primary mt-2"
+                      onClick={() => handleAddComment(index)}
+                    >
+                      Add Comment
+                    </button>
+                  </div>
                 </div>
-              </Card.Body>
-            </Card>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

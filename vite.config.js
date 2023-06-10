@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
 import reactRefresh from "@vitejs/plugin-react-refresh";
+import tailwindcss from "tailwindcss";
 export default defineConfig({
   build: {
     rollupOptions: {
@@ -9,21 +10,6 @@ export default defineConfig({
       },
     },
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "@/path/to/src/scss/_Abraham.scss";`,
-      },
-    },
-  },
-  plugins: [reactRefresh()],
-  resolve: {
-    fallback: {
-      zlib: false,
-    },
-    alias: {
-      crypto: "crypto-browserify",
-      os: "os-browserify/browser",
-    },
-  },
+
+  plugins: [reactRefresh(), tailwindcss()],
 });
