@@ -122,7 +122,7 @@ function Inenft() {
       <h3>Total Supply: {totalSupply} </h3>
       <form onSubmit={viewNft}>
         <label>
-          Number Input:
+          VIEW YOUR INE MEMBERSHIP:
           <input
             type="number"
             value={numberInput}
