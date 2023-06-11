@@ -108,10 +108,10 @@ const Safepool = () => {
   return (
     <div>
       <h1>INE Pool</h1>
-      <p>OKT Balance: {web3 && web3.utils.fromWei(ethBalance, "ether")}</p>
+      <p>MATIC Balance: {web3 && web3.utils.fromWei(ethBalance, "ether")}</p>
       <p>Ine Balance: {ineBalance}</p>
       <div>
-        <label>OKT Amount:</label>
+        <label>MATIC Amount:</label>
         <input
           type="number"
           value={ethAmount}
@@ -128,7 +128,7 @@ const Safepool = () => {
         />
         <button onClick={handleWithdrawIne}>Withdraw Ine</button>
       </div>
-      <button onClick={handleWithdrawEth}>Withdraw OKT</button>
+      <button onClick={handleWithdrawEth}>Withdraw MATIC</button>
     </div>
   );
 };
