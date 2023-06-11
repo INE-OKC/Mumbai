@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c18c6a4f.css",
+    "main.js": "/static/js/main.639b7daf.js",
+    "static/media/okx1.png": "/static/media/okx1.4675c8a5661c68aea317.png",
+    "static/media/okx2.png": "/static/media/okx2.51e37851870ad0e81c62.png",
+    "static/media/walletsavings.png": "/static/media/walletsavings.06871c83a157a09b5556.png",
+    "static/media/careers.png": "/static/media/careers.b9ec566e7a6baab76820.png",
+    "static/media/spay.png": "/static/media/spay.4dfee798d89ecb578526.png",
+    "static/media/media.png": "/static/media/media.618f4425639869ab03ac.png",
+    "static/media/overviewsavings.png": "/static/media/overviewsavings.e2f69ede546bed50c222.png",
+    "static/media/Review-two.png": "/static/media/Review-two.704d83c12abd91346b4c.png",
+    "static/media/Review-one.png": "/static/media/Review-one.d6347034956c71aacade.png",
+    "static/media/Review-three.png": "/static/media/Review-three.4d459c793b7706468bd2.png",
+    "static/media/solsavings.png": "/static/media/solsavings.c7221873eb1528e92a24.png",
+    "static/media/purplepic.png": "/static/media/purplepic.fd597f10c6f478096f9b.png",
+    "static/media/okx5.jpeg": "/static/media/okx5.7387cf9cd5a8e829159d.jpeg",
+    "static/media/ashpic.png": "/static/media/ashpic.0763ada9ee8ada34ea1f.png",
+    "static/media/redpic.png": "/static/media/redpic.eef7f89bedb99bb8557c.png",
+    "static/media/reddishpic.png": "/static/media/reddishpic.2310ba413124bfc7f6a2.png",
+    "static/media/bluepic.png": "/static/media/bluepic.a59956bc46a93a44a838.png",
+    "index.html": "/index.html",
+    "main.c18c6a4f.css.map": "/static/css/main.c18c6a4f.css.map",
+    "main.639b7daf.js.map": "/static/js/main.639b7daf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c18c6a4f.css",
+    "static/js/main.639b7daf.js"
+  ]
+}

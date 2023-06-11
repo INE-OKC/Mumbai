@@ -10,6 +10,7 @@ import ConnectWallet from "./Component/ConnectWallet";
 import Profile from "./Component/Profile";
 import Safe from "./Component/Safe";
 import { Dapp } from "./Component/Dapp";
+import { Inenft } from "./Component/IneNft";
 import "./styles/globals.css";
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="profile" element={<Profile />} />
         <Route path="/safe" element={<Safe />} />
         <Route path="/Dapp" element={<Dapp />} />
+        <Route path="/Inenft" element={<Inenft />} />
       </Routes>
     </div>
   );

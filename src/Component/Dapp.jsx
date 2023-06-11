@@ -8,6 +8,7 @@ import { APP_CONSTANTS } from "../constants";
 import "../styles/globals.css";
 function Dapp() {
   const [provider, setProvider] = useState();
+
   const [account, setAccount] = useState("Connect Wallet");
   const [commentInputs, setCommentInputs] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -23,7 +24,7 @@ function Dapp() {
           const signer = provider.getSigner();
 
           const contract = new ethers.Contract(
-            APP_CONSTANTS.CONTRACT_ADDRESS,
+            APP_CONSTANTS.DAPP_CONTRACT_ADDRESS,
             contractABI,
             signer
           );
@@ -101,20 +102,6 @@ function Dapp() {
       await tx.wait();
       console.log("writepost function executed successfully");
       toast.success("Post liked successfully");
-      refreshPosts();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleRepost = async (index) => {
-    try {
-      const contract = new provider.eth.Contract(
-        INEdapp.abi,
-        APP_CONSTANTS.CONTRACT_ADDRESS
-      );
-      const accounts = await provider.eth.getAccounts();
-      await contract.methods.repost(index).send({ from: accounts[0] });
       refreshPosts();
     } catch (error) {
       console.error(error);

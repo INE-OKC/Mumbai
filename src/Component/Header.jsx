@@ -46,6 +46,12 @@ function Header() {
           <li className="bg-button-color text-white text-sm w-20 text-center mx-auto mb-2 py-1  lg:text-lg lg:w-auto lg:bg-stone-500  hover:bg-stone-600 lg:py-1 lg:px-5 lg:rounded-2xl">
             <Link to="signin">Sign in</Link>
           </li>
+          <li className="bg-button-color text-white text-sm w-20 text-center mx-auto mb-2 py-1  lg:text-lg lg:w-auto lg:bg-stone-500  hover:bg-stone-600 lg:py-1 lg:px-5 lg:rounded-2xl">
+            <Link to="Dapp">Launch Dapp</Link>
+          </li>
+          <li className="bg-button-color text-white text-sm w-20 text-center mx-auto mb-2 py-1  lg:text-lg lg:w-auto lg:bg-stone-500  hover:bg-stone-600 lg:py-1 lg:px-5 lg:rounded-2xl">
+            <Link to="Inenft">Join us</Link>
+          </li>
         </ul>
       </nav>
     </header>
