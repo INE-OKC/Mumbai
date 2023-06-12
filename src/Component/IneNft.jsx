@@ -12,6 +12,8 @@ function Inenft() {
   const [totalSupply, setTotalSupply] = useState("");
   const [cost, setCost] = useState("");
   const [contract, setContract] = useState();
+  const [walletAddress, setWalletAddress] = useState("");
+  const [mintAmount, setMintAmount] = useState(1);
   const [numberInput, setNumberInput] = useState("");
 
   const handleInputChange = (event) => {
@@ -78,7 +80,7 @@ function Inenft() {
 
   const getcost = async () => {
     try {
-      const Cost = await contract.cost();
+      let Cost = await contract.cost();
       Cost = Cost.parseInt()/1000000000000000;
       setCost(Cost.toString());
       console.log("tx successfull");
@@ -86,13 +88,14 @@ function Inenft() {
       console.error(error);
     }
   };
-  const options = {value: ethers.utils.parseEther("5.0")}
-  
+ 
    const mint = async () => {
     try {
-      const tx = await contract.mint(1, options);
+      const tx = await contract.mint(mintAmount, {
+        value: ethers.utils.parseEther("5"), // Amount in Matic
+      });
       await tx.wait();
-      console.log("tx successfull");
+      console.log("Membership approved");
       toast.success("Joined INE successfully");
     } catch (error) {
       console.error(error);
@@ -144,9 +147,20 @@ function Inenft() {
         Get Cost
       </button>
       <h3> Dollar cost : {cost} </h3>
+  <br />
+      {walletAddress && <p>Connected Wallet: {walletAddress}</p>}
+      <br />
+      <input
+        type="number"
+        min="1"
+        max="10"
+        value={mintAmount}
+        onChange={(e) => setMintAmount(e.target.value)}
+      />
+      <button onClick={mintNFT}>Mint NFT</button>
       <form onSubmit={viewNft}>
         <label>
-          VIEW YOUR INE MEMBERSHIP:
+          VIEW INE MEMBERSHIP by ID :
           <input
             type="number"
             value={numberInput}
