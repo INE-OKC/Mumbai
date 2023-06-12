@@ -78,7 +78,8 @@ function Inenft() {
 
   const getcost = async () => {
     try {
-      let Cost = await contract.cost();
+      let Cos = await contract.cost():
+   const Cost = ethers.utils.formatEther(Cos);
       setCost(Cost.toString());
       console.log("tx successfull");
     } catch (error) {
@@ -88,9 +89,7 @@ function Inenft() {
  
    const mint = async () => {
     try {
-      const tx = await contract.mint(1, {
-        value: ethers.utils.parseEther("5"), // Amount in Matic
-      });
+      const tx = await contract.mint( 1 , { value: ethers.constants.Five }); // Amount is 5 matic
       await tx.wait();
       console.log("Membership approved");
       toast.success("Joined INE successfully");
