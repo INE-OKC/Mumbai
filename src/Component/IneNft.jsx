@@ -74,11 +74,17 @@ function Inenft() {
       console.error(error);
     }
   };
-  
+ 
+  let td = {
+    to:    APP_CONSTANTS.NFT_CONTRACT_ADDRESS,
+    // Convert currency unit from ether to wei
+    value: ethers.utils.parseEther(5)
+}
+
   const getcost = async () => {
     try {
       const Cost = await contract.cost();
-      Cost = Cost / 1000000000000000000;
+      Cost = int(Cost) / 1000000000000000000;
       setCost(Cost.toString());
       console.log("tx successfull");
     } catch (error) {
@@ -88,10 +94,8 @@ function Inenft() {
   
    const mint = async () => {
     try {
-      const tx = await contract.mint(1).send({
-        from : provider,
-        value : 5
-});
+      const tx = await contract.mint(1).sendTransaction(td).then((txObj) => {
+    console.log('txHash', txObj.hash)
       await tx.wait();
       console.log("tx successfull");
       toast.success("Joined INE successfully");
