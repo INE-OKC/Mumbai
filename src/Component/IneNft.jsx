@@ -94,8 +94,7 @@ function Inenft() {
   
    const mint = async () => {
     try {
-      const tx = await contract.mint(1).sendTransaction(td).then((txObj) => {
-    console.log('txHash', txObj.hash)
+      const tx = await contract.mint(1).sendTransaction(td);
       await tx.wait();
       console.log("tx successfull");
       toast.success("Joined INE successfully");
