@@ -74,12 +74,7 @@ function Inenft() {
       console.error(error);
     }
   };
- 
-  let td = {
-    to:    APP_CONSTANTS.NFT_CONTRACT_ADDRESS,
-    // Convert currency unit from ether to wei
-    value: ethers.utils.parseEther(5)
-}
+
 
   const getcost = async () => {
     try {
@@ -94,7 +89,9 @@ function Inenft() {
   
    const mint = async () => {
     try {
-      const tx = await contract.mint(1).sendTransaction(td);
+      const tx = await contract.mint(1).sendTransaction({
+value : 5
+});
       await tx.wait();
       console.log("tx successfull");
       toast.success("Joined INE successfully");
