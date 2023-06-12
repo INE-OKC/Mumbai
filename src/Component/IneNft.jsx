@@ -89,7 +89,7 @@ function Inenft() {
  
    const mint = async () => {
     try {
-      const tx = await contract.mint( 1 , { value: 5 }); // Amount is 5 matic
+      const tx = await contract.mint(utils.parseUnits("1"),{ value: 5 }); // Amount is 5 matic
       await tx.wait();
       console.log("Membership approved");
       toast.success("Joined INE successfully");
@@ -142,7 +142,7 @@ function Inenft() {
       >
         Get Cost
       </button>
-      <h3> Wei Matic Cost : {cost} </h3>
+      <h3> Dollar Cost : {cost} </h3>
       <form onSubmit={viewNft}>
         <label>
           VIEW INE MEMBERSHIP by ID :
