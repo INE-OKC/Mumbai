@@ -79,19 +79,18 @@ function Inenft() {
   const getcost = async () => {
     try {
       const Cost = await contract.cost();
-      Cost = parseInt(Cost)/1000000000000000;
+      Cost = Cost.parseInt()/1000000000000000;
       setCost(Cost.toString());
       console.log("tx successfull");
     } catch (error) {
       console.error(error);
     }
   };
+  const options = {value: ethers.utils.parseEther("5.0")}
   
    const mint = async () => {
     try {
-      const tx = await contract.mint(1).sendTransaction({
-value : 5
-});
+      const tx = await contract.mint(1, options);
       await tx.wait();
       console.log("tx successfull");
       toast.success("Joined INE successfully");
