@@ -89,7 +89,7 @@ function Inenft() {
  
    const mint = async () => {
     try {
-      const tx = await contract.mint(utils.parseUnits("1"),{ value: ethers.utils.formatEther(Cos) }); // Amount is 5 matic
+      const tx = await contract.mint(ethers.utils.parseUnits("1"),{ value: ethers.utils.formatEther(Cos) }); // Amount is 5 matic
       await tx.wait();
       console.log("Membership approved");
       toast.success("Joined INE successfully");
