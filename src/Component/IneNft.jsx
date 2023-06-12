@@ -143,7 +143,7 @@ function Inenft() {
       >
         Get Cost
       </button>
-      <h3> Dollar cost : {cost.parseInt()/1000000000000000000} </h3>
+      <h3> Wei Matic Cost : {cost} </h3>
       <form onSubmit={viewNft}>
         <label>
           VIEW INE MEMBERSHIP by ID :
