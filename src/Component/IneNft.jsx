@@ -10,6 +10,7 @@ function Inenft() {
   const [provider, setProvider] = useState();
   const [account, setAccount] = useState("Connect Wallet");
   const [totalSupply, setTotalSupply] = useState("");
+  const [cost, setCost] = useState("");
   const [contract, setContract] = useState();
   const [numberInput, setNumberInput] = useState("");
 
@@ -62,16 +63,7 @@ function Inenft() {
     }
   };
 
-  const mint = async () => {
-    try {
-      const tx = await contract.mint(1);
-      await tx.wait();
-      console.log("tx successfull");
-      toast.success("Joined INE successfully");
-    } catch (error) {
-      console.error(error);
-    }
-  };
+
 
   const getTotalSupply = async () => {
     try {
@@ -82,6 +74,30 @@ function Inenft() {
       console.error(error);
     }
   };
+  
+  const getcost = async () => {
+    try {
+      const Cost = await contract.cost();
+      setCost(Cost.toString());
+      console.log("tx successfull");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+   const mint = async () => {
+    try {
+      const tx = await contract.mint(1).send({
+        from : provider,
+        value : cost
+});
+      await tx.wait();
+      console.log("tx successfull");
+      toast.success("Joined INE successfully");
+    } catch (error) {
+      console.error(error);
+    }
+  }; 
   const viewNft = async (e) => {
     try {
       e.preventDefault();
@@ -120,6 +136,14 @@ function Inenft() {
         Get Total Supply
       </button>
       <h3>Total Supply: {totalSupply} </h3>
+
+      <button
+        onClick={getcost}
+        className="btn btn-primary mt-2 md:mt-0 md:ml-4"
+      >
+        Get Cost
+      </button>
+      <h3> Matic cost : {cost} </h3>
       <form onSubmit={viewNft}>
         <label>
           VIEW YOUR INE MEMBERSHIP:
