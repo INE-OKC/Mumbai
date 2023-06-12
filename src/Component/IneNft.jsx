@@ -79,7 +79,7 @@ function Inenft() {
   const getcost = async () => {
     try {
       const Cost = await contract.cost();
-      Cost = int(Cost) / 1000000000000000000;
+      Cost = parseInt(Cost)/1000000000000000;
       setCost(Cost.toString());
       console.log("tx successfull");
     } catch (error) {
