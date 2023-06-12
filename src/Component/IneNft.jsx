@@ -78,6 +78,7 @@ function Inenft() {
   const getcost = async () => {
     try {
       const Cost = await contract.cost();
+      Cost = Cost / 1000000000000000000;
       setCost(Cost.toString());
       console.log("tx successfull");
     } catch (error) {
@@ -89,7 +90,7 @@ function Inenft() {
     try {
       const tx = await contract.mint(1).send({
         from : provider,
-        value : cost
+        value : 5
 });
       await tx.wait();
       console.log("tx successfull");
@@ -143,7 +144,7 @@ function Inenft() {
       >
         Get Cost
       </button>
-      <h3> Matic cost : {cost} </h3>
+      <h3> Dollar cost : {cost} </h3>
       <form onSubmit={viewNft}>
         <label>
           VIEW YOUR INE MEMBERSHIP:
