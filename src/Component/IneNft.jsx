@@ -78,7 +78,7 @@ function Inenft() {
 
   const getcost = async () => {
     try {
-      let Cos = await contract.cost():
+      let Cos = await contract.cost();
    const Cost = ethers.utils.formatEther(Cos);
       setCost(Cost.toString());
       console.log("tx successfull");
