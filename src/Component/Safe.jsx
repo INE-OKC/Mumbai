@@ -1,136 +1,160 @@
-import react, { useEffect, useState } from "react";
-import Web3 from "web3";
-//import react from "react";
-//import Web3 from "web3";
-import SavingsContract from "../assets/INEpool.json";
-//import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { ethers } from "ethers";
+import contractABI from "../assets/INEpool.json";
+import { APP_CONSTANTS } from "../constants";
+import "../styles/globals.css";
+const SavingsContract = () => {
+  const [provider, setProvider] = useState();
+  const [contract, setContract] = useState();
+  const [account, setAccount] = useState("Connect Wallet");
+  const [ethBalance, setEthBalance] = useState(0);
+  const [ineBalance, setIneBalance] = useState(0);
+  const [connected, setConnected] = useState(false);
+  const [depositEthAmount, setDepositEthAmount] = useState("");
+  const [withdrawEthAmount, setWithdrawEthAmount] = useState("");
+  const [withdrawIneAmount, setWithdrawIneAmount] = useState("");
 
-const Safepool = () => {
-  const [web3, setWeb3] = useState(null);
-  const [contract, setContract] = useState(null);
-  const [accounts, setAccounts] = useState([]);
-  const [ethBalance, setEthBalance] = useState("0");
-  const [ineBalance, setIneBalance] = useState("0");
-  const [ethAmount, setEthAmount] = useState("");
-  const [ineAmount, setIneAmount] = useState("");
-
+  // Contract initialization
   useEffect(() => {
-    const initWeb3 = async () => {
-      if (window.ethereum) {
-        const web3Instance = new Web3(window.ethereum);
-        await window.ethereum.enable();
-        setWeb3(web3Instance);
-      }
-    };
+    async function connectToContract() {
+      try {
+        if (window.ethereum) {
+          await window.ethereum.enable();
+          const provider = new ethers.providers.Web3Provider(window.ethereum);
+          const signer = provider.getSigner();
 
-    initWeb3();
+          const contract = new ethers.Contract(
+            APP_CONSTANTS.POOL_CONTRACT_ADDRESS,
+            contractABI,
+            signer
+          );
+          console.log(contract);
+          setContract(contract);
+          setProvider(provider);
+        } else {
+          console.error("Metamask not found");
+        }
+      } catch (error) {
+        console.error("Error connecting to contract:", error);
+      }
+    }
+
+    connectToContract();
   }, []);
 
-  useEffect(() => {
-    const initContract = async () => {
-      if (web3) {
-        try {
-          const networkId = 65;
-          const deployedNetwork = SavingsContract.networks[networkId];
-          const contractAddress = "0x8b88DF64B67B741F97A742480f822FC8a76ff87B";
-          const contractInstance = new web3.eth.Contract(
-            SavingsContract.abi,
-            contractAddress
-          );
-          setContract(contractInstance);
-          const accounts = await web3.eth.getAccounts();
-          setAccounts(accounts);
-        } catch (error) {
-          console.error("Error initializing contract:", error);
-        }
+  // Function to connect using MetaMask
+  const connectMetamask = async () => {
+    if (window.ethereum) {
+      try {
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        setProvider(provider);
+        setAccount(accounts[0]);
+        console.log("Connected account:", accounts[0]);
+        setConnected(true);
+      } catch (error) {
+        console.error("Error connecting to wallet:", error);
       }
-    };
+    } else {
+      console.error("Wallet not found");
+    }
+  };
 
-    initContract();
-  }, [web3]);
+  // Function to deposit ETH
+  const deposit = async () => {
+    // TODO: Deposit ETH
+    if (depositEthAmount) {
+      const amountWei = ethers.utils.parseEther(depositEthAmount);
+      const tx = await contract.deposit({ value: amountWei });
+      await tx.wait(1);
+      console.log("tx successful");
+      fetchBalances();
+    }
+  };
+
+  // Function to withdraw INE
+  const withdrawIne = async () => {
+    // TODO: Withdraw INE
+    try {
+      if (withdrawIneAmount) {
+        const amountWei = ethers.utils.parseEther(withdrawIneAmount);
+        const gasLimit = ethers.BigNumber.from("300000");
+        const tx = await contract.withdrawEth(amountWei, { gasLimit });
+        await tx.wait(1);
+        console.log("withdraw tx successful");
+        fetchBalances();
+      }
+    } catch (error) {
+      console.log("Withdraw INE failed:", error.reason);
+    }
+  };
+
+  // Function to withdraw ETH
+  const withdrawEth = async () => {
+    // TODO: Withdraw ETH
+    try {
+      if (withdrawEthAmount) {
+        const amountWei = ethers.utils.parseEther(withdrawEthAmount);
+        const gasLimit = ethers.BigNumber.from("200000");
+        const tx = await contract.withdrawEth(amountWei, { gasLimit });
+        await tx.wait(1);
+        console.log("withdraw tx successful");
+        fetchBalances();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetchBalances = async () => {
+    const ethBalance = await contract.getEthBalance(account);
+    setEthBalance(parseFloat(ethers.utils.formatEther(ethBalance)).toFixed(2));
+    const ineBalance = await contract.getIneBalance(account);
+    setIneBalance(parseFloat(ethers.utils.formatEther(ineBalance)).toFixed(2));
+  };
 
   useEffect(() => {
-    const fetchBalances = async () => {
-      if (contract && accounts.length > 0) {
-        const ethBalance = await contract.methods
-          .getEthBalance(accounts[0])
-          .call();
-        setEthBalance(ethBalance);
-
-        const ineBalance = await contract.methods
-          .getIneBalance(accounts[0])
-          .call();
-        setIneBalance(ineBalance);
-      }
-    };
-
-    fetchBalances();
-  }, [contract, accounts]);
-
-  const handleDeposit = async () => {
-    if (contract && accounts.length > 0) {
-      const amountWei = web3.utils.toWei(ethAmount, "ether");
-      await contract.methods
-        .deposit()
-        .send({ from: accounts[0], value: amountWei }); //Deposit OKT
-      // Refresh balances after the transaction
+    if (connected) {
       fetchBalances();
-      setEthAmount("");
-      const amount = web3.utils.toWei("1", "ether"); // Deposit 1 OKT
-      await contract.methods
-        .deposit()
-        .send({ from: accounts[0], value: amount });
     }
-  };
-
-  const handleWithdrawEth = async () => {
-    if (contract && accounts.length > 0) {
-      await contract.methods.withdrawEth().send({ from: accounts[0] });
-      // Refresh balances after the transaction
-      fetchBalances();
-      await contract.methods
-        .withdrawEth(ethBalance)
-        .send({ from: accounts[0] });
-    }
-  };
-
-  const handleWithdrawIne = async () => {
-    if (contract && accounts.length > 0) {
-      await contract.methods.withdrawIne().send({ from: accounts[0] });
-      // Refresh balances after the transaction
-      fetchBalances();
-      await contract.methods
-        .withdrawIne(ineBalance)
-        .send({ from: accounts[0] });
-    }
-  };
+  }, [connected]);
 
   return (
     <div>
-      <h1>INE Pool</h1>
-      <p>MATIC Balance: {web3 && web3.utils.fromWei(ethBalance, "ether")}</p>
-      <p>Ine Balance: {ineBalance}</p>
-      <div>
-        <label>MATIC Amount:</label>
-        <input
-          type="number"
-          value={ethAmount}
-          onChange={(e) => setEthAmount(e.target.value)}
-        />
-        <button onClick={handleDeposit}>Deposit OKT</button>
-      </div>
-      <div>
-        <label>Ine Amount:</label>
-        <input
-          type="number"
-          value={ineAmount}
-          onChange={(e) => setIneAmount(e.target.value)}
-        />
-        <button onClick={handleWithdrawIne}>Withdraw Ine</button>
-      </div>
-      <button onClick={handleWithdrawEth}>Withdraw MATIC</button>
+      <h1>Savings Contract</h1>
+      <button onClick={connectMetamask}>Connect with MetaMask</button>
+      {connected && (
+        <>
+          <h2>ETH Balance: {ethBalance}</h2>
+          <h2>INE Balance: {ineBalance}</h2>
+          <input
+            type="number"
+            value={depositEthAmount}
+            onChange={(e) => setDepositEthAmount(e.target.value)}
+            placeholder="Deposit ETH amount"
+          />
+          <button onClick={deposit}>Deposit ETH</button>
+          <input
+            type="number"
+            value={withdrawIneAmount}
+            onChange={(e) => setWithdrawIneAmount(e.target.value)}
+            placeholder="Withdraw INE amount"
+          />
+          <button onClick={withdrawIne}>Withdraw INE</button>
+          <input
+            type="number"
+            value={withdrawEthAmount}
+            onChange={(e) => setWithdrawEthAmount(e.target.value)}
+            placeholder="Withdraw ETH amount"
+          />
+          <button onClick={withdrawEth}>Withdraw ETH</button>
+        </>
+      )}
     </div>
   );
 };
 
-export default Safepool;
+export default SavingsContract;

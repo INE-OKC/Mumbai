@@ -6,6 +6,7 @@ import { ethers } from "ethers";
 import contractABI from "../assets/INEnft.json";
 import { APP_CONSTANTS } from "../constants";
 import "../styles/globals.css";
+
 function Inenft() {
   const [provider, setProvider] = useState();
   const [account, setAccount] = useState("Connect Wallet");
@@ -17,6 +18,7 @@ function Inenft() {
   const handleInputChange = (event) => {
     setNumberInput(event.target.value);
   };
+
   useEffect(() => {
     async function connectToContract() {
       try {
@@ -63,51 +65,51 @@ function Inenft() {
     }
   };
 
-
-
   const getTotalSupply = async () => {
     try {
       const total = await contract.maxSupply();
+
       setTotalSupply(total.toString());
-      console.log("tx successfull");
+      console.log("tx successful");
     } catch (error) {
       console.error(error);
     }
   };
 
-
-  const getcost = async () => {
+  const getCost = async () => {
     try {
-      let Cos = await contract.cost();
-   const Cost = ethers.utils.formatEther(Cos);
+      let cos = await contract.cost();
+      const Cost = ethers.utils.formatEther(cos);
       setCost(Cost.toString());
-      console.log("tx successfull");
+      console.log("tx successful");
     } catch (error) {
       console.error(error);
     }
   };
- 
-   const mint = async () => {
+
+  const mint = async () => {
     try {
-      const tx = await contract.mint(ethers.utils.parseUnits("1"),{ value: ethers.utils.formatEther("5000000000000000000") }); // Amount is 5 matic
+      const tx = await contract.mint(1); // Amount is 5 matic
       await tx.wait();
       console.log("Membership approved");
       toast.success("Joined INE successfully");
     } catch (error) {
       console.error(error);
     }
-  }; 
+  };
+
   const viewNft = async (e) => {
     try {
       e.preventDefault();
       const URI = await contract.tokenURI(numberInput);
       console.log(URI);
-      console.log("tx successfull");
+      console.log("tx successful");
       setNumberInput("");
     } catch (error) {
       console.error(error);
     }
   };
+
   return (
     <div className="App">
       <ToastContainer />
@@ -117,7 +119,7 @@ function Inenft() {
           onClick={handleConnect}
           className="btn btn-primary mt-2 md:mt-0 md:ml-4"
         >
-          {account}
+          {account}{" "}
         </button>
         {provider && (
           <button className="btn btn-danger mt-2 md:mt-0 md:ml-4">
@@ -137,7 +139,7 @@ function Inenft() {
       <h3>Total Supply: {totalSupply} </h3>
 
       <button
-        onClick={getcost}
+        onClick={getCost}
         className="btn btn-primary mt-2 md:mt-0 md:ml-4"
       >
         Get Cost
