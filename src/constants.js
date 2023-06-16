@@ -1,13 +1,13 @@
 export const APP_CONSTANTS = {
-  ALCHEMY_KEY: "https://www.oklink.com/okexchain-test",
+  ALCHEMY_KEY: "https://rpc-mumbai.maticvigil.com",
   DAPP_CONTRACT_ADDRESS: "0x65cCeeB1AB1F547e34fD150efe5608F867D922F7",
   POOL_CONTRACT_ADDRESS: "0x686392876d35254C15714799b4aA5AAe99a7697B",
   NFT_CONTRACT_ADDRESS: "0x8b88DF64B67B741F97A742480f822FC8a76ff87B",
   TOKEN_CONTRACT_ADDRESS: "0xa35CB016eD4bFeC670070D1A638012C375a09170 ",
-  OPENSEA_ASSETS_URL: "https://testnets.opensea.io/assets/",
+  OPENSEA_ASSETS_URL: "https://testnets.opensea.io/assets/mumbai",
   CLIENT_ID:
     "BGhy-DvEdndjNw_qcxryh6CqOfm6W9mk_IQtAxzHHy0cNguHCG3F2FODub400gtPR-bLkPsx-1uf7MRZqBE12kw",
-  RPC_TARGET: "https://www.oklink.com/okexchain-test",
+  RPC_TARGET: "https://rpc-mumbai.maticvigil.com",
 
   REACT_APP_REFRESH_TIMER: 30,
 };
