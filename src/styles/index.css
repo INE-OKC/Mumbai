@@ -161,6 +161,10 @@ header .in{
     margin-bottom: 50px;
 }
 
+.work{
+    margin-bottom: 100px;
+}
+
 .inn .box .box1 .boxes{
     /* border: 2px solid red; */
     text-align: center;
@@ -196,4 +200,43 @@ header .in{
 
 .sect{
     margin-bottom: 90px;
+}
+
+.cust{
+    padding-top: 20px;
+}
+
+.cust .head .sect{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cust .head .sect .img{
+    width: 76px;
+    height: 86px; 
+    margin-bottom: 50px;
+}
+
+.flex-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.head .sect .words{
+    text-align: center;
+}
+
+.head .sect .words h3{
+    font-size: 2rem;
+}
+
+.head .sect .words p{
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.boc{
+    /* Start from here */
+    display: flex;
 }
