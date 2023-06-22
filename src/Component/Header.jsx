@@ -50,10 +50,10 @@ function Header() {
             <Link to="Dapp">Launch Dapp</Link>
           </li>
           <li className="bg-button-color text-white text-sm w-20 text-center mx-auto mb-2 py-1  lg:text-lg lg:w-auto lg:bg-stone-500  hover:bg-stone-600 lg:py-1 lg:px-5 lg:rounded-2xl">
-            <Link to="Inenft">Join us</Link>
+            <Link to="Inenft">Become a Pro Member</Link>
           </li>
           <li className="bg-button-color text-white text-sm w-20 text-center mx-auto mb-2 py-1  lg:text-lg lg:w-auto lg:bg-stone-500  hover:bg-stone-600 lg:py-1 lg:px-5 lg:rounded-2xl">
-            <Link to="safe">INE Token</Link>
+            <Link to="safe">Save with INE</Link>
           </li>
         </ul>
       </nav>
