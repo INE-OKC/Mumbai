@@ -3,6 +3,7 @@ import logo from "../assets/image/logo.png";
 import google from "../assets/image/googleicon.png";
 import line from "../assets/image/Line.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [details, setDetails] = useState({
