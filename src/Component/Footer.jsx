@@ -37,11 +37,9 @@ function Footer() {
           <a className="underline underline-offset-1">Join our dev team</a>
         </Link>
         </p>
-        
-      </div>
+       </div>
       <div className="text-white">
         <h3 className="font-semibold text-lg pb-3 md:text-xl">INE Dapp</h3>
-        </p>
         <p className="text-[0.6rem] pb-3 md:text-sm">
           <Link to="Dapp">Launch Dapp</Link>
         </p>
