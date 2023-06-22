@@ -125,10 +125,10 @@ const SavingsContract = () => {
   return (
     <div>
       <h1>Savings Contract</h1>
-      <button onClick={connectMetamask}>Connect with MetaMask</button>
+      <button onClick={connectMetamask}>Connect with MetaMask and explore</button>
       {connected && (
         <>
-          <h2>ETH Balance: {ethBalance}</h2>
+          <h2>Matic Balance: {ethBalance}</h2>
           <h2>INE Balance: {ineBalance}</h2>
           <input
             type="number"
@@ -136,7 +136,7 @@ const SavingsContract = () => {
             onChange={(e) => setDepositEthAmount(e.target.value)}
             placeholder="Deposit ETH amount"
           />
-          <button onClick={deposit}>Deposit ETH</button>
+          <button onClick={deposit}>Deposit Matic</button>
           <input
             type="number"
             value={withdrawIneAmount}
@@ -150,7 +150,7 @@ const SavingsContract = () => {
             onChange={(e) => setWithdrawEthAmount(e.target.value)}
             placeholder="Withdraw ETH amount"
           />
-          <button onClick={withdrawEth}>Withdraw ETH</button>
+          <button onClick={withdrawEth}>Withdraw Matic</button>
         </>
       )}
     </div>
