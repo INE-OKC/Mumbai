@@ -7,8 +7,7 @@ function Footer() {
         <img src={footerlogo} alt="logo" className="w-[30%] pb-6" />
         <p className="text-[0.6rem] leading-6 md:text-sm md:leading-10">
           {" "}
-          &copy; 2022 Whisk. All rights reserved Privacy Policy Terms Security
-          Do Not Sell My Personal Information
+          &copy; 2023 INE. All rights reserved.
         </p>
       </div>
       <div className="text-white ">
@@ -30,16 +29,18 @@ function Footer() {
         </p>
       </div>
       <div className="text-white">
-        <h3 className="font-semibold text-lg pb-3 md:text-xl">INE Dapp</h3>
-        
+        <h3 className="font-semibold text-lg pb-3 md:text-xl">Resources</h3>
         <p className="text-[0.6rem] pb-3 md:text-sm">
-          <Link to="Dapp">Launch Dapp</Link>
+          <a href="/">Support</a>
         </p>
         <p className="text-[0.6rem] pb-3 md:text-sm">
-         <Link to="safe">Save with INE</Link>
+          <a href="/">Blog</a>
         </p>
         <p className="text-[0.6rem] pb-3 md:text-sm">
-          <Link to="Inenft">Become a Pro Member</Link>
+          <a href="/">Partners</a>
+        </p>
+        <p className="text-[0.6rem] pb-3 md:text-sm">
+          <a href="/">Press</a>
         </p>
       </div>
     </footer>
