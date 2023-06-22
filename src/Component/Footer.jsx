@@ -1,4 +1,5 @@
   import footerlogo from '../assets/image/INE.png';
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -34,18 +35,15 @@ function Footer() {
     </p>
       </div>
       <div className="text-white">
-        <h3 className="font-semibold text-lg pb-3 md:text-xl">Resources</h3>
+        <h3 className="font-semibold text-lg pb-3 md:text-xl">INE DAPP</h3>
         <p className="text-[0.6rem] pb-3 md:text-sm">
-          <a href="/">Support</a>
+          <Link to="Dapp">Launch Dapp</Link>
         </p>
         <p className="text-[0.6rem] pb-3 md:text-sm">
-          <a href="/">Blog</a>
+         <Link to="safe">Save with INE</Link>
         </p>
         <p className="text-[0.6rem] pb-3 md:text-sm">
-          <a href="/">Partners</a>
-        </p>
-        <p className="text-[0.6rem] pb-3 md:text-sm">
-          <a href="/">Press</a>
+          <Link to="Inenft">Become a Pro Member</Link>
         </p>
       </div>
     </footer>
