@@ -9,7 +9,7 @@ function Sidebar() {
             <img src={icon} alt="icon" className="inline w-[3%] md:w-[7%]" />
           </span>{" "}
           Digital Platform to discuss everything{" "}
-          <span className="text-dark-green">OKTC.</span>
+          <span className="text-dark-green">Polygon.</span>
         </p>
         <p className="text-center pb-4 text-xs md:text-left">
           You will never know everything. But you will know more.
