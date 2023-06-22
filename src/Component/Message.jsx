@@ -130,7 +130,7 @@ const Message = () => {
                   <p>Ope</p> <i>42 min ago</i>
                 </div>
                 <span>
-                  Hey there! I see you're interested in Solana, too. What got
+                  Hey there! I see you're interested in Polygon, too. What got
                   you into the platform?
                 </span>
                 <span>Call me if you get this okay.</span>
@@ -142,7 +142,7 @@ const Message = () => {
                   <p>Me</p> <i>12 min ago</i>
                 </div>
                 <span>
-                  Hi! Yeah, I've been following Solana for a while now. I was
+                  Hi! Yeah, I've been following Chainlink for a while now. I was
                   really impressed with the platform's speed and scalability,
                   and I believe it has a lot of potential for the future.
                 </span>
