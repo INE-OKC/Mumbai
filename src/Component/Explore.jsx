@@ -56,8 +56,8 @@ function Explore() {
                <div className="trendTitle">
                <p className="oktcStyle text-white w-[95%]">#OKTC :</p>
               <p className=" text-white w-[95%]">
-                Just bought my first $OKTC and I'm already loving the speed and
-                low fees! Excited to be a part of the OKTC community{" "}
+                Just bought my first $LINK and I'm already loving the speed and
+                low fees! Excited to be a part of the Chainlink community{" "}
               </p>
                </div>
             </div>
@@ -86,8 +86,8 @@ function Explore() {
                <div className="trendTitle">
                <p className="oktcStyle text-white w-[95%]">#OKTC :</p>
               <p className=" text-white w-[95%]">
-                Just bought my first $OKTC and I'm already loving the speed and
-                low fees! Excited to be a part of the OKTC community{" "}
+                Just bought my first $Matic and I'm already loving the speed and
+                low fees! Excited to be a part of the Polygon community{" "}
               </p>
                </div>
             </div>
