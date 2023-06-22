@@ -33,7 +33,7 @@ function Login() {
           className="w-[8%] inline md:block md:w-[10%]"
         />
         <h1 className="inline text-lg font-bold pl-[30%] md:block md:pl-0 md:pt-3">
-          Hey, Hello
+          Login to INE
         </h1>
         <p className="text-xs pt-[1%] text-center text-gray-600 md:text-left">
           Welcome back! Please enter your details.
@@ -106,7 +106,7 @@ function Login() {
           <p className="text-xs mt-2 lg:mt-3">
             <span>Don't have an account?</span>
             <a href="/" className="text-decoration-line: underline pl-1">
-              Sign up for free
+              <Link to="signin">Sign in</Link>
             </a>
           </p>
         </div>
