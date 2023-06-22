@@ -9,6 +9,7 @@ function Footer() {
           {" "}
           &copy; 2023 INE. All rights reserved.
         </p>
+       <M>
       </div>
       <div className="text-white ">
         <h3 className="font-semibold text-lg pb-3 md:text-xl">INE</h3>
