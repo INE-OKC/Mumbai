@@ -10,7 +10,7 @@ function HowItWorks() {
         How does it work?
       </h3>
       <p className="text-white text-sm md:text-base md:text-center lg:text-lg">
-        A detailed guide to using OKTC Social Media
+        A detailed guide to using Chainlink X Polygon Social Media
       </p>
       <div className="mt-20 md:flex md:flex-wrap md:justify-center md:mt-24">
         <div className='bg-[url("/images/redbg.png")] flex flex-col items-center md:w-[40%] md:mr-20 lg:w-[28%] lg:mt-2 lg:mr-40'>
