@@ -3,6 +3,7 @@ import Follow from "./Follow"
 import Stories from "./Stories"
 import Media from "./Media"
 import ConnectWallet from "./ConnectWallet"
+import Dapp from "./Dapp"
 import bigmanpic from '../assets/image/bigman.png'
 import dots from '../assets/image/dots.png'
 import jamespic from '../assets/image/contentFour.png'
@@ -60,12 +61,12 @@ function Dashboard() {
                 </button>
               </div>
               <p className="mt-3 text-white w-[95%]">
-                Just bought my first $OKTC and I'm already loving the speed and
-                low fees! Excited to be a part of the OKTC community{" "}
+            Just bought my first $LINK and I'm already loving the speed and
+                low fees! Excited to be a part of the Chainlink community{" "}
                 <span className="mt-3 block">
                   <img src={spaypic} alt="pic" />
                 </span>
-                <span className="block mt-5">#oktc #Crypto</span>
+                <span className="block mt-5">#link #chainlink #Crypto</span>
               </p>
               <div className="flex w-[70%] justify-between mt-10">
                 <button className="text-search-text flex">
