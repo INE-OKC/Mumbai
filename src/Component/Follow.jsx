@@ -24,7 +24,7 @@ function Follow() {
           <img src={david} alt="davidpic" className="w-[25%] h-[100%]" />
           <div className="ml-2">
             <h3 className="text-white font-medium text-xs">David Lee</h3>
-            <p className="text-search-text text-xs">@solanaking</p>
+            <p className="text-search-text text-xs">@link-king</p>
           </div>
         </div>
         <button className="bg-white text-xs font rounded-3xl h-7 mt-1 px-4">
@@ -37,7 +37,7 @@ function Follow() {
           <img src={mark} alt="lilypic" className="w-[25%] h-[100%]" />
           <div className="ml-2">
             <h3 className="text-white font-medium text-xs">Mark Thompson </h3>
-            <p className="text-search-text text-xs">@thesolanaguy</p>
+            <p className="text-search-text text-xs">@thepolygonguy</p>
           </div>
         </div>
         <button className="bg-white text-xs font rounded-3xl h-7 mt-1 px-4">
