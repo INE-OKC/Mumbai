@@ -7,8 +7,7 @@ function Footer() {
         <img src={footerlogo} alt="logo" className="w-[30%] pb-6" />
         <p className="text-[0.6rem] leading-6 md:text-sm md:leading-10">
           {" "}
-          &copy; 2022 Whisk. All rights reserved Privacy Policy Terms Security
-          Do Not Sell My Personal Information
+          &copy; 2023 INE. All rights reserved.
         </p>
       </div>
       <div className="text-white ">
@@ -23,7 +22,7 @@ function Footer() {
           <a href="/">Chrome Extension</a>
         </p>
         <p className="text-[0.6rem] pb-3 md:text-sm">
-          <a href="/">Whisk for Business</a>
+          <a href="/">INE</a>
         </p>
         <p className="text-[0.6rem] pb-3 md:text-sm">
           <a href="/">Careers</a>
